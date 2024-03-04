@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Sleep Tracker App</title>
+    <script defer src="static/script.js"></script>
+</head>
+<body>
+
+    <!-- title -->
+    <header>
+        <h1>Sleep Tracker App</h1>
+        <h2><span id="dateTimeNow">Computing date</span></h2>
+    </header>
+
+     <!-- popup box to ask username -->
+     <div id="popupSave" class="popupBox visible">
+        <form for="userName" action="/getuser" method="post" class="popup-content" id="form">
+            <label>Please enter your name</label>
+            <input type="text" placeholder="Please enter a name:" name="username" id="userName" required="required">
+            <input type="submit" value="Save" id="btnSave">
+        </form>
+    </div>
+
+    <main>
+        <!-- Calendar date -->
+        <div>
+            <h2 class="title-graph">Sleeping time graph</h2>
+            <h3 class="date-calendar">$$DATE$$</h3>
+        </div>
+        
+        <!-- Calendar -->
+        <div class="main-grid">
+            <div class="box-display-calendar grid-item-fill">
+                <table class="table graph-table">
+                    <thead>
+                        <tr>
+                            <th class="hours hours-name">Hours</th>
+                            <th>Mo-Tu</th>
+                            <th>Tu-We </th>
+                            <th>We-Th</th>
+                            <th>Th-Fr</th>
+                            <th>Fr-Sa</th>
+                            <th>Sa-Su</th>
+                            <th>Su-Mo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="hours">12h+</td>
+                            <td class="Mo13 no-border"></td>
+                            <td class="Tu13 no-border"></td>
+                            <td class="We13 no-border"></td>
+                            <td class="Th13 no-border"></td>
+                            <td class="Fr13 no-border"></td>
+                            <td class="Sa13 no-border"></td>
+                            <td class="Su13 no-border"></td>
+                        </tr>
+                        <tr>
+                            <td class="hours">12h</td>
+                            <td class="Mo12"></td>
+                            <td class="Tu12"></td>
+                            <td class="We12"></td>
+                            <td class="Th12"></td>
+                            <td class="Fr12"></td>
+                            <td class="Sa12"></td>
+                            <td class="Su12"></td>
+                        </tr>
+                        <tr>
+                            <td class="hours">11h</td>
+                            <td class="Mo11"></td>
+                            <td class="Tu11"></td>
+                            <td class="We11"></td>
+                            <td class="Th11"></td>
+                            <td class="Fr11"></td>
+                            <td class="Sa11"></td>
+                            <td class="Su11"></td>
+                        </tr>
+                        <tr>
+                            <td class="hours">10h</td>
+                            <td class="Mo10"></td>
+                            <td class="Tu10"></td>
+                            <td class="We10"></td>
+                            <td class="Th10"></td>
+                            <td class="Fr10"></td>
+                            <td class="Sa10"></td>
+                            <td class="Su10"></td>
+                        </tr>
+                        <tr>
+                            <td class="hours">9h</td>
+                            <td class="Mo09"></td>
+                            <td class="Tu09"></td>
+                            <td class="We09"></td>
+                            <td class="Th09"></td>
+                            <td class="Fr09"></td>
+                            <td class="Sa09"></td>
+                            <td class="Su09"></td>
+                        </tr>
+                        <tr>
+                            <td class="hours">8h</td>
+                            <td class="Mo08"></td>
+                            <td class="Tu08"></td>
+                            <td class="We08"></td>
+                            <td class="Th08"></td>
+                            <td class="Fr08"></td>
+                            <td class="Sa08"></td>
+                            <td class="Su08"></td>
+                        </tr>
+                        <tr>
+                            <td class="hours">7h</td>
+                            <td class="Mo07"></td>
+                            <td class="Tu07"></td>
+                            <td class="We07"></td>
+                            <td class="Th07"></td>
+                            <td class="Fr07"></td>
+                            <td class="Sa07"></td>
+                            <td class="Su07"></td>
+                        </tr>
+                        <tr>
+                            <td class="hours">6h</td>
+                            <td class="Mo06"></td>
+                            <td class="Tu06"></td>
+                            <td class="We06"></td>
+                            <td class="Th06"></td>
+                            <td class="Fr06"></td>
+                            <td class="Sa06"></td>
+                            <td class="Su06"></td>
+                        </tr>
+                        <tr>
+                            <td class="hours">5h</td>
+                            <td class="Mo05"></td>
+                            <td class="Tu05"></td>
+                            <td class="We05"></td>
+                            <td class="Th05"></td>
+                            <td class="Fr05"></td>
+                            <td class="Sa05"></td>
+                            <td class="Su05"></td>
+                        </tr>
+                        <tr>
+                            <td class="hours">4h</td>
+                            <td class="Mo04"></td>
+                            <td class="Tu04"></td>
+                            <td class="We04"></td>
+                            <td class="Th04"></td>
+                            <td class="Fr04"></td>
+                            <td class="Sa04"></td>
+                            <td class="Su04"></td>
+                        </tr>
+                        <tr>
+                            <td class="hours">3h</td>
+                            <td class="Mo03"></td>
+                            <td class="Tu03"></td>
+                            <td class="We03"></td>
+                            <td class="Th03"></td>
+                            <td class="Fr03"></td>
+                            <td class="Sa03"></td>
+                            <td class="Su03"></td>
+                        </tr>
+                        <tr>
+                            <td class="hours">2h</td>
+                            <td class="Mo02"></td>
+                            <td class="Tu02"></td>
+                            <td class="We02"></td>
+                            <td class="Th02"></td>
+                            <td class="Fr02"></td>
+                            <td class="Sa02"></td>
+                            <td class="Su02"></td>
+                        </tr>
+                        <tr>
+                            <td class="hours">1h</td>
+                            <td class="Mo01"></td>
+                            <td class="Tu01"></td>
+                            <td class="We01"></td>
+                            <td class="Th01"></td>
+                            <td class="Fr01"></td>
+                            <td class="Sa01"></td>
+                            <td class="Su01"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+
+            <!-- Button to add a sleeping time -->
+            <div id="form" class="visible box-card grid-item"> 
+                <form action="/save" method="post" class="style-box">
+                    <h3>Add a new sleeping time</h3>
+                    <label for="dateOne">On which date you went to sleep</label>
+                    <input type="date" name="dateOne" id="dateOne" required="required">
+                    <br>
+                    <label for="timeOne">At what time you went to bed</label>
+                    <input type="time" name="timeBed" id="timeOne" required="required">
+                    <br>
+                    <label for="dateTwo">On which date you woke up</label>
+                    <input type="date" name="dateTwo" id="dateTwo" required="required">
+                    <br>
+                    <label for="timeTwo">At what time you got up</label>
+                    <input type="time" name="timeUp" id="timeTwo" required="required">
+                    <br>
+                    <input type="submit" value="Save" id="btnSaveData">
+                </form>
+            </div>
+
+            <!-- user info -->
+            <div class="visible box-card grid-item">
+                <div class="style-box">
+                    <h3>Average sleeping time</h3>
+                    <p>Your average sleeping time is $$AVERAGE$$</p>
+                    <p>Last data saved: $$TRACKE$$</p>
+                    <h3>Hours of sleep recommended for each age group</h3>
+                    <div class="table-needs">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Age and condition</th>
+                                    <th>Sleep needs</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Newborns (0-3 months)</td>
+                                    <td>14 to 17 hours</td>
+                                </tr>
+                                <tr>
+                                    <td>Infants (4-11 months)</td>
+                                    <td>12 to 15 hours</td>
+                                </tr>
+                                <tr>
+                                    <td>Toddlers (1-2 years)</td>
+                                    <td>11 to 14 hours</td>
+                                </tr>
+                                <tr>
+                                    <td>Preschoolers (3-4 years)</td>
+                                    <td>10 to 13 hours</td>
+                                </tr>
+                                <tr>
+                                    <td>School-age children (5-12 years)</td>
+                                    <td>9 to 11 hours</td>
+                                </tr>
+                                    <td>Teenagers (13-17 years)</td>
+                                    <td>8 to 10 hours</td>
+                                </tr>
+                                <tr>
+                                    <td>Adults (18-64 years)</td>
+                                    <td>7 to 9 hours</td>
+                                </tr>
+                                <tr>
+                                    <td>Older Adults (65 years and over)</td>
+                                    <td>7 to 8 hours</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>  
+                </div>
+            </div>
+
+            <!-- button to log out -->
+            <div class="box-display grid-item-fill">
+                <button class="btn-logout" type="button" id="logout">Log out</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

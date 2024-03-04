@@ -1,0 +1,239 @@
+/*  declaring global css variables */
+:root {
+    /* 1rem is by default 16px */
+    --card-border-radius: 1rem;
+    --btn-border-radius: 4px;
+    --grid-gap: 1rem;
+    --grid-margin: 8px;
+}
+
+/* "*" selects all elements */
+* {
+    box-sizing: border-box;
+}
+
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif; 
+    background-color: #e7e3e3
+}
+
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+.title-graph {
+    text-align: left;
+    margin-bottom: -12px;
+    margin-left: var(--grid-gap);
+}
+
+.date-calendar {
+    color: #888;
+    margin-bottom: 2px;
+    text-align: left;
+    margin-left: var(--grid-gap);
+}
+
+.box-card {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* grid */
+.main-grid {
+    margin: var(--grid-margin);
+    margin-bottom: var(--grid-gap);
+    display: grid;
+    gap: var(--grid-gap);
+    /* 1fr 1fr = 50%  of the available space */
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+}
+.grid-item-fill {
+    /* span 2 is for two elements side by side on the same column */
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+}
+/* on small scren display in column */
+@media (max-width: 600px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+    .grid-item-fill {
+        grid-column: 1;
+    }
+}
+
+
+.box-display-calendar {
+    width: max(100%, 280px);
+    background-color: #c0bebe;
+    border-radius: var(--card-border-radius);
+    height: auto;
+    align-self: auto;
+    max-width: 100%;
+    overflow: auto;
+}
+
+
+.style-box {
+    background-color: #fefefe;
+    padding: 1rem;
+    border-radius: var(--card-border-radius);
+}
+
+.box-display {
+    background-color: #c8c6c6;
+}
+
+
+.btn-logout {
+    width: 100%;
+    background-color: rgb(232, 17, 17);
+    color: white;
+    padding: 14px 20px;
+    margin: 0;
+    border: none;
+    border-radius: var(--btn-border-radius);
+    cursor: pointer;
+}
+.btn-logout:hover,
+.btn-logout:focus {
+    background-color: red;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-needs {
+    overflow: auto;
+}
+
+.table-needs  th {
+    border: 1px solid #dddddd;
+    background-color: #edeaea;
+    text-align: left;
+    padding: 5px;
+}
+
+
+.table-needs td {
+    border: 1px solid #dddddd;
+    background-color: #fcfcfc;
+    text-align: left;
+    padding: 8px;
+}
+
+
+.graph-table th {
+    border: none;
+    padding: 10px;
+    background-color: rgb(6, 116, 6);
+}
+
+.graph-table td { 
+    border: 1px solid #ddd;
+    text-align: center;
+    background-color: #f2f2f2;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+  
+}
+
+.graph-table .no-border {
+    border-top: none;
+}
+
+.graph-table .box-green {
+    background-color: #37a33a; 
+}
+
+.graph-table .hours {
+    background-color: rgb(221, 215, 215);
+    border: none;
+    width: 2rem;
+}
+
+.graph-table .hours-name {
+    background-color: #888;
+}
+
+  
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 12px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: var(--btn-border-radius);
+    box-sizing: border-box;
+    font-family: inherit;
+   
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    margin-bottom: -1px;
+
+}
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.popupBox.visible {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.4);
+    display: grid;
+    place-content: center;
+
+}
+
+.popup-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: min(100%, 500px);
+    margin: auto;
+    border-radius:var(--btn-border-radius);
+}
+
+.btn {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: var(--btn-border-radius);
+    cursor: pointer;
+}
+.btn:hover
+.btn:focus {
+    background-color: #45a049;
+}
